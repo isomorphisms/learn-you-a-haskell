@@ -600,7 +600,7 @@ auxiliary function with a *where*.
 
 ~~~~ {.haskell:hs name="code"}
 calcBmis :: (RealFloat a) => [(a, a)] -> [a]
-calcBmis inputs = [output | (intermediate1, intermediate2) <- inputs, let outputs = intermediate1 / intermediate2 / intermediate2]
+calcBmis inputs = [out | (interm1, interm2) <- inputs, let outputs = interm1 / interm2 / interm2]
 ~~~~
 
 We include a *let* inside a list comprehension much like we would a
