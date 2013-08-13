@@ -194,6 +194,10 @@ this function that takes a number and multiplies it by two.
 doubleMe x = x + x
 ~~~~
 
+Notice the pattern `functionName argument = how the output is computed`.
+In mathematics what would be expressed `f(x)=y` would show up in Haskell
+as `f x = y`.
+
 Functions are defined in a similar way that they are called. The
 function name is followed by parameters seperated by spaces. But when
 defining functions, there's a = and after that we define what the
