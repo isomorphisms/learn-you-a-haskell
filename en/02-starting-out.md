@@ -678,10 +678,39 @@ some number of the same element in a list. replicate 3 10 returns
 I'm a list comprehension
 ------------------------
 
-![frog](../img/kermit.png) If you've ever taken a
-course in mathematics, you've probably run into *set comprehensions*.
-They're normally used for building more specific sets out of general
-sets. A basic comprehension for a set that contains the first ten even
+![frog](../img/kermit.png) Mathematicians use *set comprehensions* to
+express "all the things that satisfy X property". For example, "all of
+the integers that are odd" would be {x &in; &Zopf; | x modulo 2 == 1}
+or in more English-like notation {integers i | i is odd}.
+
+The bar | can be read in English "such that" or "where" or "satisfying".
+
+More examples:
+
+- { loops &ell; | &ell; passes through point p }
+- { curves c(s) | c(s)&ne;c(t) &forall; s,t } curves that don't interesect themselves (Jordan curves or simple curves)
+- { functions f | 
+
+You might notice that an individual integer, loop, curve, or thing is
+given a name like i, &ell;, c, or t on the left&mdash;to specify an
+individual thing i, &ell;, c, t out of the larger class of all such
+things &forall;i, &forall;&ell;, &forall;c, &forall;t&mdash;and then
+properties or restrictions are told on a case-by-case basis on the
+right-hand side of the |.
+
+This individual-level specification of the conditions required for
+membership in the set is good for computers, because whilst a computer
+_can_ test whether 6 is even just using basic arithmetic, it would take
+a lot more work to explain to the computer all of the rules for deciding
+entire classes of numbers are even (like 2&Zopf;&mdash;&iquot;what
+is 2&Zopf;?&mdash;asks the computer. As an aside, symbolic calculators
+like MATLAB SAGE, Mathematica, PARI/GP, Macaulay2 do bother to explain
+to the computer the logic of these general classes of things&mdash;but
+still the computer is only processing one "thing" at a time&mdash; like
+you'll see GHCi does in a list comprehension like [ num | num `mod` 2 == 0].)
+
+
+A basic comprehension for a set that contains the first ten even
 natural numbers is ![set
 notation](../img/setnotation.png). The part before
 the pipe is called the output function, x is the variable, N is the
@@ -732,6 +761,9 @@ a function so we can easily reuse it.
 ~~~~ {.haskell: .ghci name="code"}
 boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]
 ~~~~
+
+You can read `xs` as the plural of `x`. `xs` is a list of `x`'s.
+
 
 The last part of the comprehension is the predicate. The function odd
 returns True on an odd number and False on an even one. The element is
