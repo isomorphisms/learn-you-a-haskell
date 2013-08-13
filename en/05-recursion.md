@@ -12,26 +12,25 @@ how we can work out very concise and elegant solutions to problems by
 thinking recursively.
 
 First, what is recursion? In school your teacher may have asked you to define a word but specified
-that you can't use the word itself to define the word. For example, `listen means using your ears`
-not `listen means when you are listening to what the person is saying`. In mathematics it is sometimes possible to coherently define X using X
-itself in the definition. For example, the factorial function could be
-defined as
+that you can't use the word itself to define the word. For example, `listen means using your ears` 
+not `listen means when you are listening to the person`. But in mathematics it is sometimes possible to coherently define X using X
+itself in the definition. For example, the factorial function could be defined as
 
-`Factorial(n) = n &times; (n&minus;1) &times; (n&minus;2) &times; &hellip; &times; 4 &times; 3 &times; 2 &times; 1`
+`Factorial(n) = n × (n&minus;1) × (n&minus;2) × &hellip; × 4 × 3 × 2 × 1`
 
 but it could also be defined both coherently and more concisely using
 a careful self-reference:
 
-`Factorial(n) = n &times; Factorial(n&minus;1), with F(0) defined to be 1`.
+`Factorial(n) = n × Factorial(n1), with F(0) defined to be 1`.
 
 As long as we feed the above definition only positive integers, it will work.
 
 ```
-Factorial(4) = 4 &times; Factorial(3)
-Factorial(4) = 4 &times; 3 &times; Factorial(2)
-Factorial(4) = 4 &times; 3 &times; 2 &times; Factorial(1)
-Factorial(4) = 4 &times; 3 &times; 2 &times; 1 &times; Factorial(0)
-Factorial(4) = 4 &times; 3 &times; 2 &times; 1 &times; 1
+Factorial(4) = 4 × Factorial(3)
+Factorial(4) = 4 × 3 × Factorial(2)
+Factorial(4) = 4 × 3 × 2 × Factorial(1)
+Factorial(4) = 4 × 3 × 2 × 1 × Factorial(0)
+Factorial(4) = 4 × 3 × 2 × 1 × 1
 ```
 
 Notice in the above that the transition down a line involves a sustitution each time.
