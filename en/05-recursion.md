@@ -20,12 +20,12 @@ In mathematics it is sometimes possible to coherently define X using X
 itself in the definition. For example, the factorial function could be
 defined as
 
-*Factorial(n) = n &times; (n&minus;1) &times; (n&minus;2) &times; &hellip; &times; 4 &times; 3 &times; 2 &times; 1*
+`Factorial(n) = n &times; (n&minus;1) &times; (n&minus;2) &times; &hellip; &times; 4 &times; 3 &times; 2 &times; 1`
 
 but it could also be defined both coherently and more concisely using
 a careful self-reference:
 
-*Factorial(n) = n &times; Factorial(n&minus;1), with F(0) defined to be 1*.
+`Factorial(n) = n &times; Factorial(n&minus;1), with F(0) defined to be 1`.
 
 As long as we feed the above definition only positive integers, it will work.
 
