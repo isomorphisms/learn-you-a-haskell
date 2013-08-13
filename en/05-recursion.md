@@ -16,12 +16,12 @@ that you can't use the word itself to define the word. For example, `listen mean
 not `listen means when you are listening to the person`. But in mathematics it is sometimes possible to coherently define X using X
 itself in the definition. For example, the factorial function could be defined as
 
-`Factorial(n) = n × (n1) × (n2) × … × 4 × 3 × 2 × 1`
+`Factorial(n) = n × (n−1) × (n−2) × … × 4 × 3 × 2 × 1`
 
 but it could also be defined both coherently and more concisely using &hellip;
 a careful self-reference:
 
-`Factorial(n) = n × Factorial(n1), with F(0) defined to be 1`.
+`Factorial(n) = n × Factorial(n−1), with F(0) defined to be 1`.
 
 As long as we feed the above definition only positive integers, it will work.
 
