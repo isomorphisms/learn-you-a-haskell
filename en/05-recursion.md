@@ -16,9 +16,9 @@ that you can't use the word itself to define the word. For example, `listen mean
 not `listen means when you are listening to the person`. But in mathematics it is sometimes possible to coherently define X using X
 itself in the definition. For example, the factorial function could be defined as
 
-`Factorial(n) = n × (n&minus;1) × (n&minus;2) × &hellip; × 4 × 3 × 2 × 1`
+`Factorial(n) = n × (n1) × (n2) × … × 4 × 3 × 2 × 1`
 
-but it could also be defined both coherently and more concisely using
+but it could also be defined both coherently and more concisely using &hellip;
 a careful self-reference:
 
 `Factorial(n) = n × Factorial(n1), with F(0) defined to be 1`.
@@ -34,26 +34,10 @@ Factorial(4) = 4 × 3 × 2 × 1 × 1
 ```
 
 Notice in the above that the transition down a line involves a sustitution each time.
+Also notice that without a definition of `Factorial(0)` the entire enterprise would have failed to terminate.
+(Not that `0` had to be the stopping point&mdash;there just has to be _some_ stopping point. We could have ended
+on `Factorial(18)` or on `Factorial(2)`, just so long as we end.)
 
-
-Recursion is a way of defining functions in which
-the function is used inside its own definition. Definitions in
-mathematics are often given recursively. For instance, the fibonacci
-sequence is defined recursively. First, we define the first two
-fibonacci numbers non-recursively. We say that *F(0) = 0* and *F(1) =
-1*, meaning that the 0th and 1st fibonacci numbers are 0 and 1,
-respectively. Then we say that for any other natural number, that
-fibonacci number is the sum of the previous two fibonacci numbers. So
-*F(n) = F(n-1) + F(n-2)*. That way, *F(3)* is *F(2) + F(1)*, which is
-*(F(1) + F(0)) + F(1)*. Because we've now come down to only
-non-recursively defined fibonacci numbers, we can safely say that *F(3)*
-is 2. Having an element or two in a recursion definition defined
-non-recursively (like *F(0)* and *F(1)* here) is also called the *edge
-condition* and is important if you want your recursive function to
-terminate. If we hadn't defined *F(0)* and *F(1)* non recursively, you'd
-never get a solution any number because you'd reach 0 and then you'd go
-into negative numbers. All of a sudden, you'd be saying that *F(-2000)*
-is *F(-2001) + F(-2002)* and there still wouldn't be an end in sight!
 
 Recursion is important to Haskell because unlike imperative languages,
 you do computations in Haskell by declaring what something *is* instead
@@ -67,13 +51,14 @@ Maximum awesome
 The maximum function takes a list of things that can be ordered (e.g.
 instances of the Ord typeclass) and returns the biggest of them. Think
 about how you'd implement that in an imperative fashion. You'd probably
-set up a variable to hold the maximum value so far and then you'd loop
-through the elements of a list and if an element is bigger than then the
-current maximum value, you'd replace it with that element. The maximum
-value that remains at the end is the result. Whew! That's quite a lot of
-words to describe such a simple algorithm!
+set up a variable `max_so_far` to hold the biggest value you've seen so far; then you'd loop
+through the elements of a list and if `current_element` is bigger than the
+`max_so_far`, you'd replace `max_so_far <- current_element`. The maximum
+value that remained at the end would be the correct answer. But that was
+a verbose way to describe a simple function. We'll see now the recursive way
+of saying the same thing is shorter.
 
-Now let's see how we'd define it recursively. We could first set up an
+We could first set up an
 edge condition and say that the maximum of a singleton list is equal to
 the only element in it. Then we can say that the maximum of a longer
 list is the head if the head is bigger than the maximum of the tail. If
