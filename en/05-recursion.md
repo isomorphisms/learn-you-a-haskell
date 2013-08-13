@@ -11,12 +11,8 @@ we'll take a closer look at recursion, why it's important to Haskell and
 how we can work out very concise and elegant solutions to problems by
 thinking recursively.
 
-First, what is recursion?
-
-In school your teacher may have asked you to define a word but specified
-that you can't use the word itself to define the word.
-
-In mathematics it is sometimes possible to coherently define X using X
+First, what is recursion? In school your teacher may have asked you to define a word but specified
+that you can't use the word itself to define the word. In mathematics it is sometimes possible to coherently define X using X
 itself in the definition. For example, the factorial function could be
 defined as
 
