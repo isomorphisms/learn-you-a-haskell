@@ -6,14 +6,42 @@ Hello recursion!
 
 ![SOVIET RUSSIA](../img/recursion.png)
 
-We mention recursion briefly in the previous chapter. In this chapter,
+We mentioned recursion briefly in the previous chapter. In this chapter,
 we'll take a closer look at recursion, why it's important to Haskell and
 how we can work out very concise and elegant solutions to problems by
 thinking recursively.
 
-If you still don't know what recursion is, read this sentence. Haha!
-Just kidding! Recursion is actually a way of defining functions in which
-the function is applied inside its own definition. Definitions in
+First, what is recursion?
+
+In school your teacher may have asked you to define a word but specified
+that you can't use the word itself to define the word.
+
+In mathematics it is sometimes possible to coherently define X using X
+itself in the definition. For example, the factorial function could be
+defined as
+
+*Factorial(n) = n &times; (n&minus;1) &times; (n&minus;2) &times; &hellip; &times; 4 &times; 3 &times; 2 &times; 1*
+
+but it could also be defined both coherently and more concisely using
+a careful self-reference:
+
+*Factorial(n) = n &times; Factorial(n&minus;1), with F(0) defined to be 1*.
+
+As long as we feed the above definition only positive integers, it will work.
+
+```
+Factorial(4) = 4 &times; Factorial(3)
+Factorial(4) = 4 &times; 3 &times; Factorial(2)
+Factorial(4) = 4 &times; 3 &times; 2 &times; Factorial(1)
+Factorial(4) = 4 &times; 3 &times; 2 &times; 1 &times; Factorial(0)
+Factorial(4) = 4 &times; 3 &times; 2 &times; 1 &times; 1
+```
+
+Notice in the above that the transition down a line involves a sustitution each time.
+
+
+Recursion is a way of defining functions in which
+the function is used inside its own definition. Definitions in
 mathematics are often given recursively. For instance, the fibonacci
 sequence is defined recursively. First, we define the first two
 fibonacci numbers non-recursively. We say that *F(0) = 0* and *F(1) =
