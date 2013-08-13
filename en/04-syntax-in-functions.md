@@ -154,6 +154,9 @@ ghci> [a+b | (a,b) <- xs]
 [4,7,6,8,11,4]
 ~~~~
 
+Remember that's `xs` as in "plural of x". "Let the x's be a list
+of the following pairs."
+
 Should a pattern match fail, it will just move on to the next element.
 
 Lists themselves can also be used in pattern matching. You can match
@@ -348,20 +351,18 @@ height and weight and calculates it for us.
 ~~~~ {.haskell:hs name="code"}
 bmiTell :: (RealFloat a) => a -> a -> String
 bmiTell weight height
-    | weight / height ^ 2 <= 18.5 = "You're underweight, you emo, you!"
-    | weight / height ^ 2 <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"
+    | weight / height ^ 2 <= 18.5 = "You're underweight."
+    | weight / height ^ 2 <= 25.0 = "Within healthy range."
     | weight / height ^ 2 <= 30.0 = "You're fat! Lose some weight, fatty!"
-    | otherwise                 = "You're a whale, congratulations!"
+    | otherwise                 = "You are obese."
 ~~~~
 
 Let's see if I'm fat ...
 
 ~~~~ {.haskell:ghci name="code"}
 ghci> bmiTell 85 1.90
-"You're supposedly normal. Pffft, I bet you're ugly!"
+"Within healthy range."
 ~~~~
-
-Yay! I'm not fat! But Haskell just called me ugly. Whatever!
 
 Note that there's no = right after the function name and its parameters,
 before the first guard. Many newbies get syntax errors because they
@@ -599,7 +600,7 @@ auxiliary function with a *where*.
 
 ~~~~ {.haskell:hs name="code"}
 calcBmis :: (RealFloat a) => [(a, a)] -> [a]
-calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]
+calcBmis inputs = [output | (intermediate1, intermediate2) <- inputs, let outputs = intermediate1 / intermediate2 / intermediate2]
 ~~~~
 
 We include a *let* inside a list comprehension much like we would a
