@@ -116,11 +116,11 @@ the first element and the maximum of the tail.
 A few more recursive functions
 ------------------------------
 
-Now that we know how to generally think recursively, let's implement a
-few functions using recursion. First off, we'll implement replicate.
-replicate takes an Int and some element and returns a list that has
-several repetitions of the same element. For instance, replicate 3 5
-returns [5,5,5]. Let's think about the edge condition. My guess is that
+Let's implement a
+few more functions using recursion. First off: replicate.
+replicate takes an integer and a thing and returns a list repeating that thing.
+For instance, replicate 3 5
+returns [5,5,5] and replicate 5 'a' returns "aaaaa". Let's think about the edge condition. My guess is that
 the edge condition is 0 or less. If we try to replicate something zero
 times, it should return an empty list. Also for negative numbers,
 because it doesn't really make sense.
